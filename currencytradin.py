@@ -17,8 +17,8 @@ rates_csv = {}
 remove_this = 'UTC-0000'
 
 
-accountID = 8709424
-OANDA = oandapy.API(environment= "practice", access_token="841a6afad9cf3d8e58a63cf12539426c-d5ddf86f5adada4025983987edc91048")
+accountID = "" # your account ID
+OANDA = oandapy.API(environment= "practice", access_token="") # enter your credentials 
 
 GBPTOUSD = Currency('GBPUSD')
 USDTOEUR = Currency('USDEUR')
@@ -71,7 +71,7 @@ def execute_arb():
     buy_USD(1500)
 
 start = time.time()    
-def mainfunction():
+def mainFunction():
     while True: 
         arb = check_arb(GBPTOUSD,USDTOEUR,EURTOGBP)
         if arb>1.0005:
@@ -84,6 +84,8 @@ def mainfunction():
             print "no arbitrage availible"
             print arb
             time.sleep(10)
+
+mainFunction()
             
 
     
